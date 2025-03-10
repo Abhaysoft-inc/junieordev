@@ -9,11 +9,11 @@ function HomePage() {
 
             <div className="h-screen flex lato-regular">
 
-                <div className="w-1/6 bg-[#2C3930] ">
+                <div className="md:w-1/6 md:block hidden bg-[#2C3930] ">
                     <Sidebar />
 
                 </div>
-                <div className="w-5/6 bg-[#3F4F44] pt-6 ">
+                <div className="md:w-5/6 bg-[#3F4F44] pt-6 ">
 
                     <p className="text-center text-[#DCD7C9] text-2xl lato-regular ">let's learn from a new error today!</p>
 
