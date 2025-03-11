@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import Skeleton from "react-loading-skeleton";
-
+import "react-loading-skeleton/dist/skeleton.css";
 
 
 export default function SearchPage() {
