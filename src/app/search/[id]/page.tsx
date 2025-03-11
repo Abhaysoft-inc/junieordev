@@ -5,12 +5,20 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+
+
 
 export default function SearchPage() {
+
+    interface ApiResponse {
+        title: string;
+        content: string;
+    }
+
+    const [data, setData] = useState<ApiResponse | null>(null);
     const searchParams = useSearchParams();
     const errorText = searchParams.get("error"); // Get error from URL
-    const [data, setData] = useState(null);
+    // const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -36,7 +44,7 @@ export default function SearchPage() {
                     setError(result.error || "Unknown error");
                 }
             } catch (err) {
-                setError("Failed to fetch data from the API.");
+                setError(String(err));
             } finally {
                 setLoading(false);
             }

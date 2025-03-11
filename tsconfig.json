@@ -34,7 +34,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/api/ai/route.js",
-    "src/app/search/[id]/page.jsx"
+    "src/app/search/[id]/page.tsx"
   ],
   "exclude": [
     "node_modules"
