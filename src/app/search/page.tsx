@@ -12,11 +12,12 @@ function SearchPage() {
                 try {
                     const parsedResult = JSON.parse(json.result); // Second parse
                     setData(parsedResult); // Store the actual JSON
-                } catch (error) {
-                    setError("Error parsing JSON");
+                }
+                catch (err) {
+                    console.log(err)
                 }
             })
-            .catch((error) => setError("Error fetching data"));
+            .catch((error) => setError(error));
     }, []);
 
     return (

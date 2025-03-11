@@ -23,7 +23,8 @@ function HomePage() {
             </div>
             <div className="md:w-5/6 bg-[#3F4F44] pt-6">
                 <p className="text-center text-[#DCD7C9] text-2xl lato-regular">
-                    let's learn from a new error today!
+                    let&apos;s learn from a new error today!
+
                 </p>
 
                 <div className="boxes mx-14 h-4/6 mt-6 flex gap-6 p-3">

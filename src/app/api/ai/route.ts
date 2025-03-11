@@ -1,5 +1,5 @@
 
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 export async function POST(req) {
@@ -45,12 +45,12 @@ export async function POST(req) {
         let responseData;
         try {
             responseData = JSON.parse(prompt.response.text());
-        } catch (e) {
-            return NextResponse.json({ error: "Invalid response format from Gemini" }, { status: 500 });
+        } catch (err) {
+            return NextResponse.json({ error: err }, { status: 500 });
         }
 
         return NextResponse.json(responseData);
     } catch (error) {
-        return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+        return NextResponse.json({ error: error }, { status: 500 });
     }
 }
