@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import ReactMarkdown from 'react-markdown';
 
 
 export default function SearchPage() {
@@ -17,7 +18,11 @@ export default function SearchPage() {
 
     const [data, setData] = useState<ApiResponse | null>(null);
     const searchParams = useSearchParams();
-    const errorText = searchParams.get("error"); // Get error from URL
+    const errParam = searchParams.get("error",);
+    const codeParam = searchParams.get("code",);
+    const errorText = errParam + ' ' + codeParam;
+
+    // const errorText = searchParams.get("error", ); // Get error from URL
     // const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -72,13 +77,16 @@ export default function SearchPage() {
 
                 <div className="text-contents flex gap-3 mt-3 mb-36">
                     <div className="w-5/7 px-1 py-2">
-                        <p className="mt-1 text-xl lato-regular text-white">
+                        <div className="mt-1 text-xl lato-regular text-white">
                             {loading ? (
                                 <Skeleton count={26} height={20} baseColor="#2C3930" highlightColor="#DCD7C9" />
                             ) : (
-                                data?.content || "No content available."
+                                <ReactMarkdown >
+                                    {data?.content || "No content available."}
+                                </ReactMarkdown>
+                                // data?.content || "No content available."
                             )}
-                        </p>
+                        </div>
                     </div>
                 </div>
 
