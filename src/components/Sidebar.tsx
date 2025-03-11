@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import { MdLogout } from 'react-icons/md'
 
@@ -7,7 +8,8 @@ function Sidebar() {
         <>
 
             <div className="px-2 mr-2 h-screen flex flex-col">
-                <p className=" flex justify-end text-[2vw] mt-3 text-[#DCD7C9]">junieordev.</p>
+                <Link href={'/home'} className='cursor-pointer'>
+                    <p className=" flex justify-end text-[2vw] mt-3 text-[#DCD7C9]">junieordev.</p></Link>
 
 
                 <div className="account-box mt-auto mb-4 mx-2 ">
