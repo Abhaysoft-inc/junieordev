@@ -26,6 +26,8 @@ export default function SearchPage() {
     const [error, setError] = useState<string | null>(null);
     const [followUp, setFollowUp] = useState("");
     const [isSending, setIsSending] = useState(false);
+    console.log(searchParams)
+    console.log(error)
 
     useEffect(() => {
         if (!errorText) {
@@ -117,8 +119,8 @@ export default function SearchPage() {
                                         remarkPlugins={[remarkGfm]}
                                         rehypePlugins={[rehypeRaw]}
                                         components={{
-                                            strong: ({ node, ...props }) => <strong className="font-bold text-[#FFD700]" {...props} />, // Gold color for bold
-                                            em: ({ node, ...props }) => <em className="italic text-[#8AB4F8]" {...props} />,
+                                            strong: ({ ...props }) => <strong className="font-bold text-[#FFD700]" {...props} />, // Gold color for bold
+                                            em: ({ ...props }) => <em className="italic text-[#8AB4F8]" {...props} />,
                                         }}
                                     >
                                         {entry.content || "No details available."}
